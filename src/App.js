@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
+import Routes from './routes';
 
 function App() {
   return (
-    <div><p>Hello World</p></div>
+    <Routes />
   );
 }
 
