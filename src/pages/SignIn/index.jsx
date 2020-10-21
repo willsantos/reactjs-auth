@@ -1,10 +1,23 @@
-import React from 'react';
-import * as auth from '../../services/api';
+import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { authContext } from '../../contexts/auth';
 
 const SignIn = () => {
+  const { signed, signIn } = useContext(authContext);
+
   async function handleSignIn() {
-    const response = await auth.logIn();
-    console.log('Logou!', response);
+    signIn();
+  }
+
+  if (signed) {
+    return (
+      <Redirect
+        to={{
+          pathname: '/dashboard',
+
+        }}
+      />
+    );
   }
 
   return (
