@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { } from '@material-ui/core';
 import { authContext } from '../../contexts/auth';
 
 const Dashboard = () => {
@@ -9,12 +10,13 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
+    <>
       <h1>Dashboard Page</h1>
       <button type="button" onClick={handleLogout}>
         Sair
       </button>
-    </div>
+    </>
+
   );
 };
 
