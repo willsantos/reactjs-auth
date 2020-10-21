@@ -4,6 +4,7 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { authContext } from '../../contexts/auth';
+import SignIn from '../../pages/SignIn';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuBar = () => {
   const classes = useStyles();
-  const { signed } = useContext(authContext);
+  const { signed, signIn, signOut } = useContext(authContext);
 
   return (
 
@@ -32,8 +33,8 @@ const MenuBar = () => {
           Auth React JS
         </Typography>
         {signed
-          ? <Button color="inherit">Logoff</Button>
-          : <Button color="inherit">Login</Button>}
+          ? <Button color="inherit" onClick={signOut}>Logoff</Button>
+          : <Button color="inherit" onClick={signIn}>Login</Button>}
       </Toolbar>
     </AppBar>
 
