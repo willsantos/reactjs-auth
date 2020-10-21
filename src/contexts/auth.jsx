@@ -7,7 +7,10 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('@WILLauth:user')));
+    const storageUser = localStorage.getItem('@WILLauth:user');
+    if (storageUser) {
+      setUser(JSON.parse(storageUser));
+    }
   }, []);
 
   async function signIn() {
