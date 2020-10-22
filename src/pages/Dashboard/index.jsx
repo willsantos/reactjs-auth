@@ -26,7 +26,7 @@ const Dashboard = () => {
   return (
     <>
       <h1>Dashboard Page</h1>
-      <Avatar className={classes.purple}>WS</Avatar>
+      <Avatar className={classes.purple}>AD</Avatar>
     </>
 
   );
