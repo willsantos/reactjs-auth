@@ -8,7 +8,7 @@ import Routes from './routes';
 
 function App() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="md">
 
       <Router>
 
