@@ -33,8 +33,8 @@ const MenuBar = () => {
           Auth React JS
         </Typography>
         {signed
-          ? <Button color="inherit" onClick={signOut}>Logoff</Button>
-          : <Button color="inherit" onClick={signIn}>Login</Button>}
+          ? <Button color="inherit" onClick={signOut}>Sign Out</Button>
+          : <Button color="inherit" onClick={signIn}>Sign In</Button>}
       </Toolbar>
     </AppBar>
 

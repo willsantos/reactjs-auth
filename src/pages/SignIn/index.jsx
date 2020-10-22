@@ -75,7 +75,7 @@ const SignIn = () => {
         margin="normal"
         color="primary"
       >
-        Fazer Login
+        Sign in
       </Button>
       <Snackbar
         open={open}
@@ -84,7 +84,7 @@ const SignIn = () => {
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         <Alert severity="error">
-          Usuario ou senha inválidos
+          Username or password invalid!
         </Alert>
       </Snackbar>
     </div>
