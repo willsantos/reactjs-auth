@@ -1,4 +1,6 @@
 import React, { useState, createContext, useEffect } from 'react';
+import { Snackbar } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import { logIn } from '../services/api';
 
 export const authContext = createContext();
@@ -13,10 +15,12 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  async function signIn() {
-    const response = await logIn();
-    setUser(response.user);
-    localStorage.setItem('@WILLauth:user', JSON.stringify(response.user));
+  async function signIn(username, password) {
+    const response = await logIn(username, password);
+    if (response) {
+      setUser(response.user);
+      localStorage.setItem('@WILLauth:user', JSON.stringify(response.user));
+    }
   }
 
   async function signOut() {
