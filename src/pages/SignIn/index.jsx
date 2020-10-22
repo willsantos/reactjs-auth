@@ -1,13 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Snackbar } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import { authContext } from '../../contexts/auth';
 
 const SignIn = () => {
   const { signed, signIn } = useContext(authContext);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [open, setOpen] = useState(false);
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   async function handleSignIn() {
-    signIn();
+    const resp = await signIn(username, password);
+    if (!resp) {
+      setOpen(true);
+    }
   }
 
   if (signed) {
@@ -27,18 +45,28 @@ const SignIn = () => {
       <TextField
         type="text"
         variant="outlined"
-        label="Usuário"
+        label="Username"
         name="username"
         fullWidth
         margin="normal"
+        onChange={
+          (e) => {
+            setUsername(e.target.value);
+          }
+        }
       />
       <TextField
         type="password"
         variant="outlined"
-        label="Senha"
+        label="Password"
         name="password"
         fullWidth
         margin="normal"
+        onChange={
+          (e) => {
+            setPassword(e.target.value);
+          }
+        }
       />
       <Button
         type="button"
@@ -49,6 +77,16 @@ const SignIn = () => {
       >
         Fazer Login
       </Button>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert severity="error">
+          Usuario ou senha inválidos
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
