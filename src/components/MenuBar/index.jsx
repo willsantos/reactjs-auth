@@ -4,7 +4,6 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { authContext } from '../../contexts/auth';
-import SignIn from '../../pages/SignIn';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar, makeStyles } from '@material-ui/core';
 import { deepPurple } from '@material-ui/core/colors';
+import { authContext } from '../../contexts/auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,12 +22,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = () => {
+  const { user } = useContext(authContext);
   const classes = useStyles();
 
   return (
     <>
       <h1>Dashboard Page</h1>
-      <Avatar className={classes.purple}>AD</Avatar>
+      <Avatar className={classes.purple}>{user.name}</Avatar>
     </>
 
   );
