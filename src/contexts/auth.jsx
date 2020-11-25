@@ -1,6 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
-import { Snackbar } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
+
 import { logIn } from '../services/api';
 
 export const authContext = createContext();
